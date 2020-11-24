@@ -12,10 +12,13 @@ def play():
         bull, stock = check(number, guess)
         if bull == 4:
             finish = True
+            print(f"You won with {score} scores")
             break
         print(f"bull : {bull}\nstock : {stock}")
         score -= 5
-    print(f"You won with {score} scores")
+        if score < 5:
+            print(f"You lose with {score} scores")
+            break
 
 
 def generate_random():
