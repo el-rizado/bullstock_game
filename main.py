@@ -1,4 +1,22 @@
-from random import randint, choice
+from random import randint
+
+
+def play():
+    number = generate_random()
+    print(number)
+    score = 100
+    bull = 0
+    stock = 0
+    finish = False
+    while not finish:
+        guess = int(input("Enter your number : "))
+        bull, stock = check(number, guess)
+        if bull == 4:
+            finish = True
+            break
+        print(f"bull : {bull}\nstock : {stock}")
+        score -= 5
+    print(f"You won with {score} scores")
 
 
 def generate_random():
@@ -24,3 +42,16 @@ def generate_random():
 def valid(number):
     if len(str(number)) == 4:
         return True
+
+def check(number, guess):
+    bull = 0
+    stock = 0
+    str_number = str(number)
+    str_guess = str(guess)
+    for i in range(4):
+        if str_guess[i] in str_number:
+            if str_guess[i] == str_number[i]:
+                bull += 1
+            else:
+                stock += 1
+    return bull, stock
