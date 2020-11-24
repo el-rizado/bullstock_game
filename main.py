@@ -3,7 +3,6 @@ from random import randint
 
 def play():
     number = generate_random()
-    print(number)
     score = 100
     bull = 0
     stock = 0
@@ -55,3 +54,4 @@ def check(number, guess):
             else:
                 stock += 1
     return bull, stock
+
