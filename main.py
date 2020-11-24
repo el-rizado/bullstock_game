@@ -21,4 +21,6 @@ def generate_random():
             flag = True
     return out_number
 
-
+def valid(number):
+    if len(str(number)) == 4:
+        return True
